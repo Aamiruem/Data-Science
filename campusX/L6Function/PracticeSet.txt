@@ -1,0 +1,46 @@
+1. Create a function to add two numbers.
+2. Find maximum of three numbers.
+3. Check whether a number is even.
+4. Check whether a number is prime.
+5. Calculate factorial.
+6. Reverse a string.
+7. Check palindrome.
+8. Count vowels.
+9. Sum digits.
+10. Count digits.
+
+Level 2
+11. Find GCD.
+12. Find LCM.
+13. Fibonacci using recursion.
+14. Find maximum in a list recursively.
+15. Find sum of a list recursively.
+16. Reverse a list recursively.
+17. Sort using a key function.
+18. Filter even numbers.
+19. Square all numbers using map().
+20. Product using reduce().
+
+Level 3
+21. Implement *args.
+22. Implement **kwargs.
+23. Combine *args and **kwargs.
+24. Create a closure.
+25. Create a counter using closure.
+26. Create a decorator.
+27. Create decorator with arguments.
+28. Create multiple decorators.
+29. Create a generator.
+30. Create Fibonacci generator.
+
+Level 4 — Advanced
+31. Implement memoization.
+32. Create a function factory.
+33. Compose two functions.
+34. Create a decorator preserving metadata.
+35. Implement retry decorator.
+36. Implement caching decorator.
+37. Implement logging decorator.
+38. Implement authentication decorator.
+39. Create an infinite generator.
+40. Solve recursive backtracking problems. n 
