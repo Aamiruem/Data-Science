@@ -53,6 +53,36 @@ YELLOW = color.rgb(245, 190, 40)
 COPPER = color.rgb(190, 105, 55)
 RED = color.rgb(205, 55, 45)
 WHITE = color.rgb(235, 240, 240)
+BLUE = color.rgb(45, 115, 220)
+
+# Ursina does not guarantee a built-in model named 'cylinder' in every version.
+# Build a reusable unit cylinder (radius 0.5, height 1) with a triangle mesh.
+def make_unit_cylinder(segments=24):
+    vertices = []
+    triangles = []
+    # bottom and top ring vertices; local cylinder axis is Y
+    for y in (-0.5, 0.5):
+        for i in range(segments):
+            angle = 2 * math.pi * i / segments
+            vertices.append(Vec3(0.5 * math.cos(angle), y,
+                                0.5 * math.sin(angle)))
+    bottom_center = len(vertices)
+    vertices.append(Vec3(0, -0.5, 0))
+    top_center = len(vertices)
+    vertices.append(Vec3(0, 0.5, 0))
+    for i in range(segments):
+        j = (i + 1) % segments
+        # side quads
+        triangles.extend([(i, j, segments + j),
+                          (i, segments + j, segments + i)])
+        # caps
+        triangles.extend([(bottom_center, j, i),
+                          (top_center, segments + i, segments + j)])
+    mesh = Mesh(vertices=vertices, triangles=triangles, mode='triangle')
+    mesh.generate()
+    return mesh
+
+CYLINDER_MODEL = make_unit_cylinder()
 
 def part(parent, name, model='cube', pos=(0,0,0), scale=(1,1,1),
          tint=WHITE, rot=(0,0,0), collider=None):
@@ -64,7 +94,7 @@ def part(parent, name, model='cube', pos=(0,0,0), scale=(1,1,1),
 def rod(parent, name, a, b, radius, tint):
     mid = (Vec3(*a) + Vec3(*b)) / 2
     vec = Vec3(*b) - Vec3(*a)
-    obj = Entity(parent=parent, name=name, model='cylinder',
+    obj = Entity(parent=parent, name=name, model=CYLINDER_MODEL,
                  position=mid, scale=(radius, vec.length, radius),
                  color=tint, shader=lit_with_shadows_shader)
     obj.look_at(Vec3(*b))
