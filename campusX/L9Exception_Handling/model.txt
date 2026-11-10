@@ -1,0 +1,4 @@
+Machine Learning
+Model Accuracy: 95
+Algorithm: Random Forest
+Training Completed
