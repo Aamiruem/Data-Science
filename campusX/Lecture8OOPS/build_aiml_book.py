@@ -18,9 +18,9 @@ from reportlab.platypus import (
     Preformatted,
     Spacer,
     Table,
-    TableOfContents,
     TableStyle,
 )
+from reportlab.platypus.tableofcontents import TableOfContents
 
 
 ROOT = Path(__file__).resolve().parent
