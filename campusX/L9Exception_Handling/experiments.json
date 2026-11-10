@@ -1,0 +1,14 @@
+[
+    {
+        "model": "Random Forest",
+        "accuracy": 0.95
+    },
+    {
+        "model": "Decision Tree",
+        "accuracy": 0.89
+    },
+    {
+        "model": "Logitic Regression",
+        "accuracy": 0.91
+    }
+]
